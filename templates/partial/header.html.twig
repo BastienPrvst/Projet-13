@@ -1,0 +1,24 @@
+
+
+    <header>
+
+        <img src="{{ asset('images/Logo.png') }}" alt="Logo de Green Goodies" class="logo">
+
+        <div class="link-div">
+            {% if app.user %}
+
+                <a href="#">Nos produits</a>
+                <a href="#">Mon panier</a>
+                <a href="#">Mon compte</a>
+                <a href="#">Déconnexion</a>
+
+            {% else %}
+
+                <a href="#">Connexion</a>
+                <a href="#">Inscription</a>
+
+            {% endif %}
+        </div>
+
+    </header>
+

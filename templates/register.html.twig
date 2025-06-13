@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    S'inscrire sur Green Goodies
+{% endblock %}
+
+{% block body %}
+
+    <section>
+
+        <div class="bg5"></div>
+
+        <div>
+            <h2>Inscription</h2>
+            <p>Tous les champs sont obligatoires.</p>
+
+            {{ form(form) }}
+        </div>
+
+        <a href="{{ path('app_login') }}">Déjà un compte ? Se connecter</a>
+
+
+    </section>
+
+{% endblock %}
+
+

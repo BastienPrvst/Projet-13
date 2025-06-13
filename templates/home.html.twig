@@ -1,0 +1,90 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Page d'accueil Green Goodies
+{% endblock %}
+
+{% block body %}
+    <main>
+        <section class="welcome-section">
+            <div>
+                <h1>Bienvenue</h1>
+                <p>Découvrez notre univers de produits durables et éthiques pour une consommation responsable</p>
+                <p>Retrouvez des articles d'hygiène & beauté, des accessoires & boissons et du prêt à porter</p>
+
+            </div>
+
+
+            <div class="bg-1">
+
+            </div>
+
+        </section>
+
+        <div>
+            <h2 class="products-title">Nos produits</h2>
+        </div>
+
+        <section class="product-section">
+            <div>
+                <img src="{{ asset('images/brosseadent.jpg') }}" alt="">
+                <h3>Kit d'hygiène recyclable</h3>
+                <p>Pour une salle de bain éco-friendly</p>
+                <span>24.99€</span>
+
+                <a href="#">Voir le produit</a>
+
+            </div>
+
+            <div>
+                <img src="{{ asset('images/ananas.jpg') }}" alt="">
+                <h3>Shot Tropical</h3>
+                <p>Fruits frais pressés à froid</p>
+                <span>4.50€</span>
+
+                <a href="#">Voir le produit</a>
+            </div>
+
+            <div>
+                <img src="{{ asset('images/bouteille.jpg') }}" alt="">
+                <h3>Gourde en bois</h3>
+                <p>50cl, bois d'olivier</p>
+                <span>16.90€</span>
+
+                <a href="#">Voir le produit</a>
+            </div>
+
+        </section>
+
+        <section class="conviction-section">
+
+            <div>
+                <h4>Notre conviction</h4>
+                <p>Chez GreenGoodies, nous croyons en un monde où le commerce peut être synonyme de bien-être pour la planète et ses habitants. Notre mission est de vous proposer une sélection rigoureuse de produits qui allient qualité, durabilité et éthique</p>
+            </div>
+
+            <div class="bg-2"></div>
+
+
+        </section>
+
+        <section class="valor-section">
+
+            <div class="bg-3"></div>
+
+            <div>
+                <h5>Nos valeurs</h5>
+                <p>Durabilité : Nous sélectionnons soigneusement des produits qui respectent l'environnement et favorisent la durabilité.
+                    Éthique : Nous nous engageons à travailler avec des partenaires et des fournisseurs qui partagent nos valeurs éthiques.
+                    Écologie : Nous encourageons des pratiques respectueuses de l'écosystème et privilégions les matériaux écologiques.</p>
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+{% endblock %}
