@@ -17,16 +17,16 @@ class Product
     private ?string $name = null;
 
     #[ORM\Column(length: 500)]
-    private ?string $description = null;
+    private ?string $shortDescription = null;
 
     #[ORM\Column]
     private ?float $price = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $info = null;
+    private ?string $fullDescription = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $image = null;
+    private ?string $picture = null;
 
     public function getId(): ?int
     {
@@ -45,14 +45,14 @@ class Product
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getShortDescription(): ?string
     {
-        return $this->description;
+        return $this->shortDescription;
     }
 
-    public function setDescription(string $description): static
+    public function setShortDescription(string $shortDescription): static
     {
-        $this->description = $description;
+        $this->shortDescription = $shortDescription;
 
         return $this;
     }
@@ -69,26 +69,26 @@ class Product
         return $this;
     }
 
-    public function getInfo(): ?string
+    public function getFullDescription(): ?string
     {
-        return $this->info;
+        return $this->fullDescription;
     }
 
-    public function setInfo(string $info): static
+    public function setFullDescription(string $fullDescription): static
     {
-        $this->info = $info;
+        $this->fullDescription = $fullDescription;
 
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getPicture(): ?string
     {
-        return $this->image;
+        return $this->picture;
     }
 
-    public function setImage(?string $image): static
+    public function setPicture(?string $picture): static
     {
-        $this->image = $image;
+        $this->picture = $picture;
 
         return $this;
     }

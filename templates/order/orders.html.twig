@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Mes commandes GreenGoodies
+{% endblock %}
+
+
+{% block %}
+
+    <section>
+
+        <h1>Mon compte</h1>
+
+        <div class="orders-div">
+
+            <h2>Mes commandes</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Date</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for order in allOrders %}
+
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.date }}</td>
+                            <td>{{ order.price }}</td>
+                        </tr>
+
+                        <hr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+{% endblock %}

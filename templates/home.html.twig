@@ -27,33 +27,20 @@
         </div>
 
         <section class="product-section">
-            <div>
-                <img src="{{ asset('images/brosseadent.jpg') }}" alt="">
-                <h3>Kit d'hygiène recyclable</h3>
-                <p>Pour une salle de bain éco-friendly</p>
-                <span>24.99€</span>
 
-                <a href="#">Voir le produit</a>
+            {% for product in products %}
+
+            <div class="product-div-home">
+                <img src="{{ asset('images/' ~ product.picture) }}" alt="">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.shortDescription }}</p>
+                <span>{{ product.price }}€</span>
+
+                <a href="{{ path('app_product', {'id': product.id}) }}">Voir le produit</a>
 
             </div>
 
-            <div>
-                <img src="{{ asset('images/ananas.jpg') }}" alt="">
-                <h3>Shot Tropical</h3>
-                <p>Fruits frais pressés à froid</p>
-                <span>4.50€</span>
-
-                <a href="#">Voir le produit</a>
-            </div>
-
-            <div>
-                <img src="{{ asset('images/bouteille.jpg') }}" alt="">
-                <h3>Gourde en bois</h3>
-                <p>50cl, bois d'olivier</p>
-                <span>16.90€</span>
-
-                <a href="#">Voir le produit</a>
-            </div>
+            {% endfor %}
 
         </section>
 
