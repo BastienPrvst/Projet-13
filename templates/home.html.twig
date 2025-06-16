@@ -8,8 +8,8 @@
 {% block body %}
     <main>
         <section class="welcome-section">
-            <div>
-                <h1>Bienvenue</h1>
+            <div class="welcome-text">
+                <h1 class="h1-home">Bienvenue</h1>
                 <p>Découvrez notre univers de produits durables et éthiques pour une consommation responsable</p>
                 <p>Retrouvez des articles d'hygiène & beauté, des accessoires & boissons et du prêt à porter</p>
 
@@ -23,7 +23,7 @@
         </section>
 
         <div>
-            <h2 class="products-title">Nos produits</h2>
+            <h2 class="h2-home">Nos produits</h2>
         </div>
 
         <section class="product-section">
@@ -31,12 +31,12 @@
             {% for product in products %}
 
             <div class="product-div-home">
-                <img src="{{ asset('images/' ~ product.picture) }}" alt="">
+                <img class="product-image-home" src="{{ asset('images/' ~ product.picture) }}" alt="">
                 <h3>{{ product.name }}</h3>
                 <p>{{ product.shortDescription }}</p>
-                <span>{{ product.price }}€</span>
+                <span class="product-price">{{ product.price }}€</span>
 
-                <a href="{{ path('app_product', {'id': product.id}) }}">Voir le produit</a>
+                <a class="product-link" href="{{ path('app_product', {'id': product.id}) }}">Voir le produit</a>
 
             </div>
 
@@ -47,8 +47,10 @@
         <section class="conviction-section">
 
             <div>
-                <h4>Notre conviction</h4>
-                <p>Chez GreenGoodies, nous croyons en un monde où le commerce peut être synonyme de bien-être pour la planète et ses habitants. Notre mission est de vous proposer une sélection rigoureuse de produits qui allient qualité, durabilité et éthique</p>
+                <div class="fifty">
+                    <h4>Notre conviction</h4>
+                    <p>Chez GreenGoodies, nous croyons en un monde où le commerce peut être synonyme de bien-être pour la planète et ses habitants. Notre mission est de vous proposer une sélection rigoureuse de produits qui allient qualité, durabilité et éthique</p>
+                </div>
             </div>
 
             <div class="bg-2"></div>
@@ -61,10 +63,15 @@
             <div class="bg-3"></div>
 
             <div>
-                <h5>Nos valeurs</h5>
-                <p>Durabilité : Nous sélectionnons soigneusement des produits qui respectent l'environnement et favorisent la durabilité.
-                    Éthique : Nous nous engageons à travailler avec des partenaires et des fournisseurs qui partagent nos valeurs éthiques.
-                    Écologie : Nous encourageons des pratiques respectueuses de l'écosystème et privilégions les matériaux écologiques.</p>
+                <div class="fifty">
+
+                    <h5>Nos valeurs</h5>
+                    <p>Durabilité : Nous sélectionnons soigneusement des produits qui respectent l'environnement et favorisent la durabilité.
+                        <br>
+                        Éthique : Nous nous engageons à travailler avec des partenaires et des fournisseurs qui partagent nos valeurs éthiques.
+                        <br>
+                        Écologie : Nous encourageons des pratiques respectueuses de l'écosystème et privilégions les matériaux écologiques.</p>
+                </div>
             </div>
 
         </section>

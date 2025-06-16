@@ -2,23 +2,25 @@
 
     <header>
 
-        <img src="{{ asset('images/Logo.png') }}" alt="Logo de Green Goodies" class="logo">
+        <section class="header-section">
+            <img src="{{ asset('images/Logo.png') }}" alt="Logo de Green Goodies" class="logo">
 
-        <div class="link-div">
-            {% if app.user %}
+            <div class="link-div">
+                {% if app.user %}
 
-                <a href="#">Nos produits</a>
-                <a href="#">Mon panier</a>
-                <a href="#">Mon compte</a>
-                <a href="#">Déconnexion</a>
+                    <a href="#">Nos produits</a>
+                    <a href="#">Mon panier</a>
+                    <a href="#">Mon compte</a>
+                    <a href="#">Déconnexion</a>
 
-            {% else %}
+                {% else %}
 
-                <a href="#">Connexion</a>
-                <a href="#">Inscription</a>
+                    <a href="#">Connexion</a>
+                    <a href="#">Inscription</a>
 
-            {% endif %}
-        </div>
+                {% endif %}
+            </div>
+        </section>
 
     </header>
 

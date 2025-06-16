@@ -1,0 +1,140 @@
+body {
+    background-color: white;
+    margin: 0;
+}
+
+*{
+    font-family: "Inter", sans-serif;
+}
+
+/*header*/
+
+header{
+    height: 70px;
+}
+
+.header-section{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-div a,
+.logo{
+    padding: 25px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+}
+
+.link-div{
+
+}
+
+/*Partie Home*/
+
+.welcome-section{
+    background-color: #E8F0E4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-text{
+    display: flex;
+    flex-direction: column;
+    padding: 10% 10% 0 10%;
+    font-size: large;
+    box-sizing: border-box;
+}
+
+.welcome-section div{
+    width: 50vw;
+    height: calc(100vw/2);
+}
+
+.bg-1{
+    background-image: url("./images/newlesscarré.png");
+    background-size: cover;
+}
+
+.product-section{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-div-home{
+    width: calc(100vw/3 - 5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-div-home img{
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.product-link{
+    padding-bottom: 35px;
+}
+
+
+/*Section Conviction et Valeurs*/
+
+.conviction-section,
+.valor-section
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.conviction-section > div:first-child {
+    width: 70%;
+    height: calc(100vw/2);
+    background-color: #EBE3D4;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+}
+
+.bg-2{
+    width: 30%;
+    background-image: url("./images/branche.jpg");
+    background-size: cover;
+    height: calc(100vw/2);
+}
+
+
+.valor-section > div:nth-child(2) {
+    width: 70%;
+    height: calc(100vw/2);
+    background-color: #E8F0E4;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+}
+
+.bg-3{
+    width: 30%;
+    height: calc(100vw/2);
+    background-image: url("./images/plastique.jpg");
+    background-size: cover;
+}
+
+.fifty{
+    width: 45%;
+    padding: 30px;
+}
+
+.fifty p {
+    text-align: start;
+    text-justify: auto;
+}
+
+
