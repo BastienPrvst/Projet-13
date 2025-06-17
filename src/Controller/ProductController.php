@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,12 +30,14 @@ final class ProductController extends AbstractController
     }
 
     #[Route('/produit/{id}', name: 'app_product')]
-    public function showProduct($id): Response
+    public function showProduct(Product $product): Response
     {
-        return $this->render('product.html.twig', []);
+        return $this->render('product.html.twig', [
+            'product' => $product,
+        ]);
     }
 
-    #[Route('/basket', name: 'app_basket')]
+    #[Route('/basket/{id}/{quantity}', name: 'app_basket', requirements: ['id'=>'\d+', 'quantity'=>'\d+'])]
     public function basket(): Response
     {
         return $this->render('basket.html.twig');

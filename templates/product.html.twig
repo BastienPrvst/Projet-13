@@ -8,25 +8,21 @@
 
 {% block body %}
 
-    <section>
+    <section class="product-page-section">
 
-        <div class="bg4"></div>
+        <img class="product-img" src="{{ asset('images/' ~ product.picture) }}" alt="">
 
-        <div>
+        <div class="product-info">
             <div>
-                <h1>Nécessaire, déodorant Bio</h1>
-                <span>8.50€</span>
+                <h1>{{ product.name|capitalize }}</h1>
+                <span class="product-page-price">{{ product.price|number_format(2, ',', '')}}€</span>
 
                 <span>Description</span>
-                <p>
-                    Déodorant Nécessaire, une formule révolutionnaire composée exclusivement d'ingrédients naturels pour une protection efficace et bienfaisante.
-
-                    Chaque flacon de 50 ml renferme le secret d'une fraîcheur longue durée, sans compromettre votre bien-être ni l'environnement. Conçu avec soin, ce déodorant allie le pouvoir antibactérien des extraits de plantes aux vertus apaisantes des huiles essentielles, assurant une sensation de confort toute la journée.
-
-                    Grâce à sa formule non irritante et respectueuse de votre peau, Nécessaire offre une alternative saine aux déodorants conventionnels, tout en préservant l'équilibre naturel de votre corps.
+                <p class="product-big-description">
+                    {{ product.fullDescription }}
                 </p>
 
-                <button><a href="">Ajouter au panier</a></button>
+                <button class="base-button"><a href="#">Ajouter au panier</a></button>
 
 
             </div>

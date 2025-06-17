@@ -22,7 +22,7 @@
 
         </section>
 
-        <div>
+        <div class="a">
             <h2 class="h2-home">Nos produits</h2>
         </div>
 
@@ -32,8 +32,8 @@
 
             <div class="product-div-home">
                 <img class="product-image-home" src="{{ asset('images/' ~ product.picture) }}" alt="">
-                <h3>{{ product.name }}</h3>
-                <p>{{ product.shortDescription }}</p>
+                <h3 >{{ product.name }}</h3>
+                <p class="product-short-description">{{ product.shortDescription }}</p>
                 <span class="product-price">{{ product.price }}€</span>
 
                 <a class="product-link" href="{{ path('app_product', {'id': product.id}) }}">Voir le produit</a>
@@ -48,7 +48,7 @@
 
             <div>
                 <div class="fifty">
-                    <h4>Notre conviction</h4>
+                    <h4 class="h4-home">Notre conviction</h4>
                     <p>Chez GreenGoodies, nous croyons en un monde où le commerce peut être synonyme de bien-être pour la planète et ses habitants. Notre mission est de vous proposer une sélection rigoureuse de produits qui allient qualité, durabilité et éthique</p>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div>
                 <div class="fifty">
 
-                    <h5>Nos valeurs</h5>
+                    <h5 class="h5-home">Nos valeurs</h5>
                     <p>Durabilité : Nous sélectionnons soigneusement des produits qui respectent l'environnement et favorisent la durabilité.
                         <br>
                         Éthique : Nous nous engageons à travailler avec des partenaires et des fournisseurs qui partagent nos valeurs éthiques.

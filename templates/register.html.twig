@@ -6,19 +6,37 @@
 
 {% block body %}
 
-    <section>
+    <section class="register-section">
 
-        <div class="bg5"></div>
-
-        <div>
-            <h1>Inscription</h1>
-            <p>Tous les champs sont obligatoires.</p>
-
-            {{ form(form) }}
+        <div class="bg-5">
+            <img src="{{ asset('images/plante.jpg') }}" alt="" class="register-img">
         </div>
 
-        <a href="{{ path('app_login') }}">Déjà un compte ? Se connecter</a>
+        <div class="register-form">
 
+            {{ form_start(form) }}
+
+            <h1 class="register-h1">Inscription</h1>
+            <p>Tous les champs sont obligatoires.</p>
+
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.password) }}
+
+
+            <div class="checkbox-div">
+                {{ form_label(form.CGU) }}
+                {{ form_widget(form.CGU, {'attr': {'class': 'checkbox'}}) }}
+                {{ form_errors(form.CGU) }}
+            </div>
+
+            {{ form_row(form.submit) }}
+
+            {{ form_end(form) }}
+
+            <a class="accountless" href="{{ path('app_login') }}">Déjà un compte ? Se connecter</a>
+        </div>
 
     </section>
 

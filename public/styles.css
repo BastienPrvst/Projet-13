@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: #FFFDF7;
     margin: 0;
 }
 
@@ -7,10 +7,16 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 /*header*/
 
 header{
     height: 70px;
+    background-color: #FFFDF7;
 }
 
 .header-section{
@@ -25,15 +31,41 @@ header{
 .logo{
     padding: 25px;
     box-sizing: border-box;
-    text-decoration: none;
-    color: black;
 }
 
 .link-div{
 
 }
 
+/*Footer*/
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding-right: 100px;
+    background-color: white;
+}
+
 /*Partie Home*/
+
+.h1-home{
+    font-size: 70px;
+    font-weight: 400;
+}
+
+.h2-home{
+    font-weight: 300;
+    margin: 40px 0 40px 100px;
+}
+
+.h4-home,
+.h5-home{
+    font-size: xx-large;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
 
 .welcome-section{
     background-color: #E8F0E4;
@@ -59,6 +91,8 @@ header{
     background-image: url("./images/newlesscarré.png");
     background-size: cover;
 }
+/*Section produits*/
+
 
 .product-section{
     display: flex;
@@ -75,6 +109,14 @@ header{
 .product-div-home img{
     width: 100%;
     aspect-ratio: 1/1;
+}
+
+.product-short-description{
+    color: grey;
+}
+
+.product-price{
+    margin-bottom: 45px;
 }
 
 .product-link{
@@ -136,5 +178,140 @@ header{
     text-align: start;
     text-justify: auto;
 }
+
+
+/*Page produit*/
+
+.product-page-section{
+    display: flex;
+    height: 90vh;
+    margin-bottom: 250px;
+    background-color: #FFFDF7;
+}
+
+.product-img{
+    width: 50%;
+    aspect-ratio: 1/1;
+
+}
+
+.product-info{
+    width: 50%;
+}
+
+.product-page-price{
+    font-size: xx-large;
+    font-weight: 300;
+    color: #333333;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.product-big-description{
+    color: #666666
+}
+
+.product-info > div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 15% 15% 0 15%;
+}
+
+.product-info > div > button {
+    align-self: center;
+}
+
+.base-button{
+    background-color: #565656;
+    width: 100%;
+    padding: 25px 0;
+    color: white;
+}
+
+.base-button a{
+    color: white;
+}
+
+/*Section login et register*/
+
+.login-section,
+.register-section{
+    display: flex;
+}
+
+.login-h1,
+.register-h1{
+    font-weight: 500;
+}
+
+.register-h1{
+    align-self: flex-start;
+    margin-bottom: 0;
+}
+
+.login-form,
+.register-form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form form,
+.register-form form
+{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.login-form form label{
+    color: #666666;
+}
+
+.login-form form input,
+.register-form form input{
+    height: 60px;
+    background-color: #FFFDF7;
+    margin-bottom: 35px;
+    margin-top: 10px;
+    border: #666666 1px solid;
+}
+
+.register-form form > div{
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-4,
+.bg-5{
+    width: 50%;
+    height: 130vh;
+}
+
+.login-img ,
+.register-img{
+    height: auto;
+    width: 100%;
+}
+
+.accountless{
+    margin-top: 50px;
+    text-decoration: underline #666666;
+    color: #666666;
+}
+
+.checkbox-div{
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+}
+
+.checkbox-div > input {
+    margin: 0 15px 0 0 !important;
+}
+
 
 

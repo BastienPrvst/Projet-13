@@ -42,12 +42,12 @@ class UserRegisterForm extends AbstractType
                 'constraints' => [
                     new Assert\IsTrue(
                         message: 'Vous devez accepter les CGU de GreenGoodies pour vous inscrire.'
-                    )]
+                    )],
             ])
 
             ->add('submit', SubmitType::class, [
                 "label" => "S'inscrire",
-                "attr" => ["class" => "user-button"]
+                "attr" => ["class" => "base-button"]
             ])
         ;
     }
