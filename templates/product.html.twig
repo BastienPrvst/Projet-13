@@ -22,7 +22,13 @@
                     {{ product.fullDescription }}
                 </p>
 
-                <button class="base-button"><a href="#">Ajouter au panier</a></button>
+                <button class="base-button"><a href="{{ path('app_basket_add', {'id': product.id }) }}">Ajouter au panier</a></button>
+
+                {% if success %}
+                    <div class="ok-basket">
+                    {{ success }}
+                    </div>
+                {%endif %}
 
 
             </div>

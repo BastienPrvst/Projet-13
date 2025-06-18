@@ -1,6 +1,19 @@
+
+html, body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: #FFFDF7;
-    margin: 0;
+    flex: 1;
+}
+
+main{
+    flex: 1;
 }
 
 *{
@@ -233,6 +246,13 @@ footer{
     color: white;
 }
 
+.ok-basket{
+    width: 60%;
+    margin: auto;
+    margin-top: 25px;
+    color: #666666;
+}
+
 /*Section login et register*/
 
 .login-section,
@@ -311,6 +331,120 @@ footer{
 
 .checkbox-div > input {
     margin: 0 15px 0 0 !important;
+}
+
+/*Page du panier*/
+
+.basket-title{
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 100px;
+}
+
+.empty-basket{
+    font-weight: 400;
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.basket-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F7F1EC;
+    height: 100%;
+}
+
+.basket-container,
+.first-basket-div
+{
+    width: 45%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.first-basket-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.first-basket-div a{
+    align-self: start;
+}
+
+.basket-item{
+    display: flex;
+    align-items: center;
+    background: #FFFDF7B2;
+    margin-bottom: 8px;
+}
+
+.basket-item-info{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.basket-item-info p,
+.item-quantity{
+    margin-bottom: 10px;
+}
+
+.basket-item-info p{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.item-quantity{
+    color: #666666;
+    font-size: 14px;
+}
+
+.item-basket-price{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.basket-img{
+    width: 150px;
+    height: 150px;
+    padding: 50px;
+}
+
+.basket-total{
+    background: #FFFDF7B2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.basket-total > div{
+    padding: 25px;
+}
+
+.basket-total > div p:first-child{
+    font-size: 14px;
+    color: #333333;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.basket-total > div p:nth-child(2){
+    font-size: 12px;
+    color: #666666;
+    font-weight: 400;
+}
+
+.basket-total p{
+    margin: 0;
+}
+
+.basket-button{
+    margin-bottom: 140px;
 }
 
 

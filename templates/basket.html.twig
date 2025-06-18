@@ -6,49 +6,56 @@
 
 {% block body %}
 
-    <section>
-        <h1>Mon panier</h1>
+    <section class="basket-section">
+        <div class="first-basket-div">
+            <h1 class="basket-title">Mon panier</h1>
 
-        <a href="#">Vider le panier</a>
+            <a class="empty-basket" href="{{ path('app_basket_delete') }}">X Vider le panier</a>
+        </div>
 
         <div class="basket-container">
 
-            {% if basket is not empty %}
+            {% if products is not empty %}
 
-                {% for item in basket %}
+                {% set totalPrice = 0 %}
 
+                {% for item in products %}
 
                     <div class="basket-item">
 
-                        <img src="{{ asset('images/' ~ item.image) }}" alt="Image {{ item.name }}">
+                        <img class="basket-img" src="{{ asset('images/' ~ item.product.picture) }}" alt="Image {{ item.product.name }}">
 
-                        <div>
-                            <p>{{ item.name|capitalize }}</p>
-                            <span class="item-quantity">Quantity: {{ item.quantity }}</span>
-                            <span class="item-price">{{ item.price }}</span>
+                        <div class="basket-item-info">
+                            <p>{{ item.product.name|capitalize }}</p>
+                            <span class="item-quantity">Quantité: {{ item.quantity }}</span>
+                            {% set realPrice = item.product.price * item.quantity %}
+                            {% set totalPrice = totalPrice + realPrice  %}
+                            <span class="item-basket-price">{{ realPrice|number_format('2',',', '') }}€</span>
                         </div>
 
                     </div>
 
-
                 {% endfor %}
 
                 <div class="basket-total">
-                    <p>Total panier : <span></span></p>
-                    <p>Frais de livraison : </p>
+                    <div>
+                        <p>Total panier : <span class="item-basket-price">{{ totalPrice|number_format('2',',', '') }}€</span></p>
+                        <p>Frais de livraison : Offert</p>
+                    </div>
+
                 </div>
 
-                <div>
-                    <button>Valider la commande</button>
+                <div class="basket-button">
+                    <button class="base-button ">Valider la commande</button>
                 </div>
-
 
             {% else %}
 
             <p>Aucun produit dans le panier pour le moment</p>
 
-        </div>
+            {% endif %}
 
+        </div>
 
     </section>
 
