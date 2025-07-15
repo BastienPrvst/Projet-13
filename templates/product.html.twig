@@ -17,12 +17,29 @@
                 <h1>{{ product.name|capitalize }}</h1>
                 <span class="product-page-price">{{ product.price|number_format(2, ',', '')}}€</span>
 
-                <span>Description</span>
+                <h2 class="product-description-title">Description</h2>
                 <p class="product-big-description">
                     {{ product.fullDescription }}
                 </p>
 
-                <button class="base-button"><a href="{{ path('app_basket_add', {'id': product.id }) }}">Ajouter au panier</a></button>
+                {% if app.user %}
+
+                    <form action="{{ path('app_basket_add', { id:product.id}) }}" method="post">
+
+                        <label for="quantity">Quantité</label>
+                        <input id="quantity" name="quantity" type="number" value="{{ basketQuantity }}">
+                        <input type="hidden" value="{{ product.id }}">
+                        {% if basketQuantity == 0 %}
+                            <input class="base-button" type="submit" value="Valider">
+                        {% else %}
+                            <input class="base-button" type="submit" value="Mettre à jour">
+                        {% endif %}
+                    </form>
+
+
+                {% else %}
+                    <button class="base-button"><a href="{{ path('app_login')}}">Se connecter</a></button>
+                {% endif %}
 
                 {% if success %}
                     <div class="ok-basket">

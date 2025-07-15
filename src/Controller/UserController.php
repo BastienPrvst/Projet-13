@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserRegisterForm;
+use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,4 +34,20 @@ final class UserController extends AbstractController
         ]);
 
     }
+
+    #[Route(path: '/mon-compte', name: 'app_profile')]
+    public function showProfile(OrderRepository $orderRepository ): Response
+    {
+        /* @var User $user */
+        $user = $this->getUser();
+        $userOrders = $orderRepository->findBy([
+            'client' => $user
+        ]);
+        return $this->render('profile.html.twig', [
+            'user' => $user,
+            'userOrders' => $userOrders
+        ]);
+
+    }
+
 }

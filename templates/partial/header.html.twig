@@ -8,10 +8,10 @@
             <div class="link-div">
                 {% if app.user %}
 
-                    <a href="#">Nos produits</a>
-                    <a href="#">Mon panier</a>
-                    <a href="#">Mon compte</a>
-                    <a href="#">Déconnexion</a>
+                    <a href="{{ path('app_home') }}#products">Nos produits</a>
+                    <a href="{{ path('app_basket_show') }}">Mon panier</a>
+                    <a href="{{ path('app_profile') }}">Mon compte</a>
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
 
                 {% else %}
 

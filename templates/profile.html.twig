@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Mon Profil
+{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <h1>Mon compte</h1>
+
+        <section class="profil-1">
+
+            <h2>Mes commandes</h2>
+
+            {% if userOrders is not empty %}
+
+                <table>
+                    <thead>
+                        <tr>N°</tr>
+                        <tr>Date</tr>
+                        <tr>prix</tr>
+                    </thead>
+                    <tbody>
+
+                    {% for order in userOrders %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.date|date('m/d/Y') }}</td>
+                            <td>{{ order.price|number_format('2', ',') }}€</td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            {% else %}
+
+                <p>Aucune commande passée pour le moment !</p>
+
+            {% endif %}
+
+        </section>
+
+
+        <section class="profil-2">
+
+            <h3>Mon accès API</h3>
+
+            <button class="base-button"><a href="#">Activer mon accès API</a></button>
+
+        </section>
+
+
+        <section class="profil-3">
+            <button class="base-button"><a href="#">Supprimer mon compte</a></button>
+        </section>
+
+    </main>
+
+
+
+
+
+{% endblock %}
+

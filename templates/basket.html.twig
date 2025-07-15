@@ -10,12 +10,14 @@
         <div class="first-basket-div">
             <h1 class="basket-title">Mon panier</h1>
 
-            <a class="empty-basket" href="{{ path('app_basket_delete') }}">X Vider le panier</a>
+            {% if products is not empty %}
+                <a class="empty-basket" href="{{ path('app_basket_delete') }}">X Vider le panier</a>
+            {% endif %}
         </div>
 
-        <div class="basket-container">
+        {% if products is not empty %}
 
-            {% if products is not empty %}
+            <div class="basket-container">
 
                 {% set totalPrice = 0 %}
 
@@ -49,13 +51,12 @@
                     <button class="base-button ">Valider la commande</button>
                 </div>
 
-            {% else %}
+            </div>
 
+        {% else %}
             <p>Aucun produit dans le panier pour le moment</p>
 
-            {% endif %}
-
-        </div>
+        {% endif %}
 
     </section>
 

@@ -195,11 +195,20 @@ footer{
 
 /*Page produit*/
 
+.product-info h1{
+    font-weight: 500;
+}
+
 .product-page-section{
     display: flex;
     height: 90vh;
     margin-bottom: 250px;
     background-color: #FFFDF7;
+}
+
+.product-description-title{
+    font-weight: 400;
+    font-size: 10px;
 }
 
 .product-img{
@@ -233,6 +242,10 @@ footer{
 
 .product-info > div > button {
     align-self: center;
+}
+
+#quantity{
+    margin: 100px 0 15px 0;
 }
 
 .base-button{
@@ -312,7 +325,7 @@ footer{
 
 .login-img ,
 .register-img{
-    height: auto;
+    height: 100%;
     width: 100%;
 }
 
@@ -361,7 +374,7 @@ footer{
 {
     width: 45%;
     max-width: 600px;
-    margin: auto;
+    margin: 50px auto;
 }
 
 .first-basket-div{
