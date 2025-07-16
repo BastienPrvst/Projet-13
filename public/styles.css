@@ -460,5 +460,46 @@ footer{
     margin-bottom: 140px;
 }
 
+/* Mon profil */
+
+.profil-main{
+    height: 100%;
+    background-color: #F7F1EC;
+}
+
+.profil-main > section{
+    width: 40%;
+    margin: 15px auto;
+    background-color: #FFFDF7;
+    padding: 50px;
+}
+
+.profil-h1{
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 25px;
+}
+
+.profil-h2{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.order-table{
+    width: 100%;
+    text-align: center;
+}
+
+.order-table th{
+    font-weight: 400;
+    font-size: 14px;
+    color: #666666;
+}
+
+.success-api{
+    text-align: center;
+}
+
 
 

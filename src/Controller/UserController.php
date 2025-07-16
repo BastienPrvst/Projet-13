@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserRegisterForm;
 use App\Repository\OrderRepository;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,10 +45,43 @@ final class UserController extends AbstractController
             'client' => $user
         ]);
         return $this->render('profile.html.twig', [
-            'user' => $user,
+            'success' => null,
             'userOrders' => $userOrders
         ]);
 
     }
+
+    #[Route(path: '/supprimer-mon-compte', name: 'app_delete_account')]
+    public function deleteAccount(EntityManagerInterface $em): Response
+    {
+        /* @var User $user */
+        $user = $this->getUser();
+        $em->remove($user);
+        $em->flush();
+
+        $session = new Session();
+        $session->invalidate();
+
+        return $this->redirectToRoute('app_home');
+    }
+
+    #[Route(path: '/activer-api', name: 'app_enable_api')]
+    public function enableApi(EntityManagerInterface $em): Response
+    {
+        /* @var User $user */
+        $user = $this->getUser();
+        $roles = $user->getRoles();
+        if(!in_array('API_USER', $roles, true)){
+            $roles[] = 'API_USER';
+        }
+        $user->setRoles($roles);
+        $em->persist($user);
+        $em->flush();
+
+        $this->addFlash('success', 'Votre accès à l\'API a bien été enregistré.');
+
+        return $this->redirectToRoute('app_profile');
+    }
+
 
 }

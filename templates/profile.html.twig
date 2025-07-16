@@ -6,21 +6,24 @@
 
 {% block body %}
 
-    <main>
+    <main class="profil-main">
 
-        <h1>Mon compte</h1>
+        <h1 class="profil-h1">Mon compte</h1>
 
         <section class="profil-1">
 
-            <h2>Mes commandes</h2>
+            <h2 class="profil-h2">Mes commandes</h2>
 
             {% if userOrders is not empty %}
 
-                <table>
+                <table class="order-table">
                     <thead>
-                        <tr>N°</tr>
-                        <tr>Date</tr>
-                        <tr>prix</tr>
+                    <tr>
+                        <th>N°</th>
+                        <th>Date</th>
+                        <th>Prix</th>
+                    </tr>
+
                     </thead>
                     <tbody>
 
@@ -30,6 +33,8 @@
                             <td>{{ order.date|date('m/d/Y') }}</td>
                             <td>{{ order.price|number_format('2', ',') }}€</td>
                         </tr>
+
+                        <hr>
 
                     {% endfor %}
 
@@ -42,6 +47,8 @@
 
             {% endif %}
 
+
+
         </section>
 
 
@@ -49,13 +56,16 @@
 
             <h3>Mon accès API</h3>
 
-            <button class="base-button"><a href="#">Activer mon accès API</a></button>
+            <button class="base-button"><a href="{{ path('app_enable_api') }}">Activer mon accès API</a></button>
+            {% for message in app.flashes('success') %}
+                <p class="flash-success success-api">{{ message }}</p>
+            {% endfor %}
 
         </section>
 
 
         <section class="profil-3">
-            <button class="base-button"><a href="#">Supprimer mon compte</a></button>
+            <button class="base-button"><a href="{{ path('app_delete_account') }}">Supprimer mon compte</a></button>
         </section>
 
     </main>
