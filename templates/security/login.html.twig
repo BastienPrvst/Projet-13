@@ -26,6 +26,10 @@
                 <button class="base-button button-login" type="submit">
                     <a href="{{ path('app_login') }}">Se connecter</a>
                 </button>
+                {% for message in app.flashes('success') %}
+                    <p class="flash-success success-api">{{ message }}</p>
+                {% endfor %}
+
             </form>
 
             <a class="accountless" href="{{ path('app_register') }}">Pas encore de compte ? S'inscrire</a>

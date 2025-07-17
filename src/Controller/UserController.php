@@ -71,16 +71,22 @@ final class UserController extends AbstractController
         /* @var User $user */
         $user = $this->getUser();
         $roles = $user->getRoles();
-        if(!in_array('API_USER', $roles, true)){
-            $roles[] = 'API_USER';
+        if(!in_array('ROLE_API_USER', $roles, true)){
+            $roles[] = 'ROLE_API_USER';
+            $this->addFlash('success', 'Votre accès à l\'API a bien été enregistré.');
+            $user->setRoles($roles);
+            $em->persist($user);
+            $em->flush();
+        }else{
+            $roles = array_filter($roles, static fn ($role) => $role !== 'ROLE_API_USER');
+            $this->addFlash('success', 'Votre accès à l\'API a bien été désactivé.');
+            $user->setRoles($roles);
+            $em->persist($user);
+            $em->flush();
+
         }
-        $user->setRoles($roles);
-        $em->persist($user);
-        $em->flush();
 
-        $this->addFlash('success', 'Votre accès à l\'API a bien été enregistré.');
-
-        return $this->redirectToRoute('app_profile');
+        return $this->redirectToRoute('app_login');
     }
 
 

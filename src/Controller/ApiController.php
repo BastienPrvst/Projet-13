@@ -18,9 +18,7 @@ class ApiController
             $products = $productRepository->findAll();
             $serializedProducts = $serializer->serialize($products, 'json');
 
-            return new JsonResponse([
-                'products' => $serializedProducts
-            ], Response::HTTP_OK, [], true);
+            return new JsonResponse( $serializedProducts, Response::HTTP_OK, [], true);
 
         }catch (ExceptionInterface $e) {
             return new JsonResponse([

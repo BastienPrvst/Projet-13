@@ -55,8 +55,11 @@
         <section class="profil-2">
 
             <h3>Mon accès API</h3>
-
-            <button class="base-button"><a href="{{ path('app_enable_api') }}">Activer mon accès API</a></button>
+            {% if "ROLE_API_USER" in app.user.roles %}
+                <button class="base-button"><a href="{{ path('app_enable_api') }}">Désactiver mon accès API</a></button>
+            {% else %}
+                <button class="base-button"><a href="{{ path('app_enable_api') }}">Activer mon accès API</a></button>
+            {% endif %}
             {% for message in app.flashes('success') %}
                 <p class="flash-success success-api">{{ message }}</p>
             {% endfor %}
