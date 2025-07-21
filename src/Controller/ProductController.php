@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -79,18 +81,11 @@ final class ProductController extends AbstractController
     }
 
     #[Route(path: '/voir-panier', name: 'app_basket_show')]
-    public function showBasket(Request $request, ProductRepository $productRepository): Response
+    public function showBasket(Request $request, ): Response
     {
         $session = $request->getSession();
         $allProducts = $session->get('basket');
-        $realBasket = [];
-        if (!empty($allProducts)) {
-            foreach ($allProducts as $productId => $quantity) {
-                $product = $productRepository->find($productId);
-                $realBasket [$productId]['product'] = $product;
-                $realBasket [$productId]['quantity'] = $quantity;
-            }
-        }
+        $realBasket = $this->configureBasket($allProducts);
 
         return $this->render('basket.html.twig', [
             'products' => $realBasket,
@@ -104,5 +99,54 @@ final class ProductController extends AbstractController
         $session->remove('basket');
         return $this->redirectToRoute('app_basket_show');
     }
+
+    #[Route(path: '/valider-mon-panier', name: 'app_basket_validate')]
+    public function validateBasket(Request $request, EntityManagerInterface $em): Response
+    {
+        $session = $request->getSession();
+        $basket = $session->get('basket');
+        $realBasket = $this->configureBasket($basket);
+
+        if (empty($realBasket)) {
+            return $this->redirectToRoute('app_basket_show');
+        }
+
+        $totalPrice = 0;
+        foreach ($realBasket as $item) {
+            $product = $item['product'];
+            $totalPrice += ($product->getPrice() * $item['quantity']);
+        }
+
+
+        $order = new Order();
+        $order
+            ->setClient($this->getUser())
+            ->setPrice($totalPrice)
+            ->setDate(new \DateTime());
+
+        $em->persist($order);
+        $em->flush();
+
+        $session->remove('basket');
+        return $this->redirectToRoute('app_profile');
+
+
+    }
+
+    private function configureBasket(mixed $data): array
+    {
+        $realBasket = [];
+        if (!empty($data)){
+            foreach ($data as $productId => $quantity) {
+                $product = $this->productRepository->find($productId);
+                $realBasket [$productId]['product'] = $product;
+                $realBasket [$productId]['quantity'] = $quantity;
+            }
+        }
+
+        return $realBasket;
+
+    }
+
 
 }
