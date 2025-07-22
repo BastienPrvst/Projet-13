@@ -47,6 +47,14 @@
                     </div>
                 {%endif %}
 
+                {% for message in app.flashes('error') %}
+
+                    <div class="ok-basket">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
 
             </div>
 

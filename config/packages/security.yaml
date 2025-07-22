@@ -55,8 +55,8 @@ security:
         - { path: /voir-panier, roles: ROLE_USER }
 
         - { path: /activer-api, roles: ROLE_USER }
-        - { path: /api/login, roles: ROLE_API_USER, methods: [ POST ] }
-        - { path: /api/products, roles: ROLE_API_USER, methods: [ GET ] }
+        - { path: /api/login, roles: IS_AUTHENTICATED_FULLY, methods: [ POST ] }
+        - { path: /api/products, roles: IS_AUTHENTICATED_FULLY, methods: [ GET ] }
 
 when@test:
     security:

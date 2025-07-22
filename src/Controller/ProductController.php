@@ -54,6 +54,13 @@ final class ProductController extends AbstractController
         $productId = $product->getId();
         (int)$quantity = $request->get('quantity');
 
+        if ($quantity < 0){
+            $this->addFlash('error', 'La quantité ne peut pas être négative.');
+            return $this->redirectToRoute('app_product', [
+                'id' => $productId,
+            ]);
+        }
+
         if ((int)$quantity === 0 && !isset($basket[$productId])) {
             return $this->redirectToRoute('app_product',
                 ['id' => $productId]);

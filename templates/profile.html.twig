@@ -28,14 +28,11 @@
                     <tbody>
 
                     {% for order in userOrders %}
-                        <tr>
+                        <tr class="border_bottom">
                             <td>{{ order.id }}</td>
-                            <td>{{ order.date|date('m/d/Y') }}</td>
+                            <td>{{ order.date|date('d/m/Y') }}</td>
                             <td>{{ order.price|number_format('2', ',') }}€</td>
                         </tr>
-
-                        <hr>
-
                     {% endfor %}
 
                     </tbody>
